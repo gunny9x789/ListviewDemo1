@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="5dp"
+    android:orientation="horizontal">
+
+    <TextView
+        android:layout_weight="@android:integer/config_shortAnimTime"
+        android:layout_width="wrap_content"
+        android:layout_height="@dimen/_40sdp"
+        android:background="@drawable/tv2"
+        android:gravity="center"
+        android:text="Ngày giao dịch"
+        android:textSize="@dimen/_10sdp" />
+
+    <TextView
+        android:layout_weight="@android:integer/config_shortAnimTime"
+        android:layout_width="wrap_content"
+        android:layout_height="@dimen/_40sdp"
+        android:background="@drawable/tv3"
+        android:gravity="center"
+        android:text="Mã CCQ"
+        android:textSize="@dimen/_10sdp" />
+
+    <TextView
+        android:layout_weight="@android:integer/config_shortAnimTime"
+        android:layout_width="wrap_content"
+        android:layout_height="@dimen/_40sdp"
+        android:background="@drawable/tv3"
+        android:gravity="center"
+        android:text="Giá trị mua"
+        android:textSize="@dimen/_10sdp" />
+
+    <TextView
+        android:layout_weight="@android:integer/config_shortAnimTime"
+        android:layout_width="wrap_content"
+        android:layout_height="@dimen/_40sdp"
+        android:background="@drawable/tv3"
+        android:gravity="center"
+        android:text="Giá trị thị trường"
+        android:textSize="@dimen/_10sdp"/>
+
+    <TextView
+        android:layout_weight="@android:integer/config_shortAnimTime"
+        android:layout_width="wrap_content"
+        android:layout_height="@dimen/_40sdp"
+        android:background="@drawable/tv4"
+        android:gravity="center"
+        android:text="Lợi nhuận"
+        android:textSize="@dimen/_10sdp" />
+
+</LinearLayout>
