@@ -44,8 +44,10 @@ public class Bai2 extends AppCompatActivity implements View.OnClickListener {
     private List<Double> listNumber;// = new ArrayList<Double>();
     private List<String> listMatch;// = new ArrayList<String>();
     private String sNumber;
+    private String thapPhan;
     private StringBuffer showNumber;
     private int i;
+    private int count;
 
 
     @Override
@@ -188,21 +190,40 @@ public class Bai2 extends AppCompatActivity implements View.OnClickListener {
                     listNumber.add(number);
                     listMatch.add("+");
                     et.setText("");
-//                     int find = sNumber.indexOf(".");
-//                     if (find>=4 || find <0){
-//                         showNumber.append(sNumber);
-//                         for (i =3 ; i < showNumber.length();i+=3)
-//                         {   int count = 0;
-//                             showNumber.insert((i+count),',');
-//                             count+=2;
-//                         }
-//                         tvShow.append(showNumber + "+");
-//                     }else
-                         tvShow.append(sNumber + "+");
+                    int find = sNumber.indexOf(".");
+                    if (find >= 4 || (find < 0 && sNumber.length() >= 4)) {
+                        if (find < 0 && sNumber.length() >= 4) {
+                            showNumber.delete(0, showNumber.length());
+                            showNumber.append(sNumber);
+                            showNumber.reverse();
+                            count = 0;
+                            for (i = 3; i < showNumber.length(); i += 3) {
+                                if (i + count <= (showNumber.length() - 1)) {
+                                    showNumber.insert((i + count), ",");
+                                }
+                                count += 1;
+                            }
+                            tvShow.append(showNumber.reverse() + "+");
+                        } else {
+                            showNumber.delete(0, showNumber.length());
+                            showNumber.append(sNumber.substring(0, find));
+                            thapPhan = sNumber.substring(find);
+                            showNumber.reverse();
+                            count = 0;
+                            for (i = 3; i < showNumber.length(); i += 3) {
+                                if (i + count <= (showNumber.length() - 1)) {
+                                    showNumber.insert((i + count), ",");
+                                }
+                                count += 1;
+                            }
+                            tvShow.append(showNumber.reverse() +thapPhan+ "+");
+                        }
+                    } else
+                        tvShow.append(sNumber + "+");
 
                 } else {
-                    Toast toast = Toast.makeText(getBaseContext(),"Không có giá trị",Toast.LENGTH_SHORT);
-                    toast.setGravity(Gravity.CENTER,0,0);
+                    Toast toast = Toast.makeText(getBaseContext(), "Không có giá trị", Toast.LENGTH_SHORT);
+                    toast.setGravity(Gravity.CENTER, 0, 0);
                     toast.show();
                 }
                 break;
@@ -215,10 +236,39 @@ public class Bai2 extends AppCompatActivity implements View.OnClickListener {
                     listNumber.add(number);
                     listMatch.add("-");
                     et.setText("");
-                    tvShow.append(number + "-");
+                    int find = sNumber.indexOf(".");
+                    if (find >= 4 || (find < 0 && sNumber.length() >= 4)) {
+                        if (find < 0 && sNumber.length() >= 4) {
+                            showNumber.delete(0, showNumber.length());
+                            showNumber.append(sNumber);
+                            showNumber.reverse();
+                            count = 0;
+                            for (i = 3; i < showNumber.length(); i += 3) {
+                                if (i + count <= (showNumber.length() - 1)) {
+                                    showNumber.insert((i + count), ",");
+                                }
+                                count += 1;
+                            }
+                            tvShow.append(showNumber.reverse() + "-");
+                        } else {
+                            showNumber.delete(0, showNumber.length());
+                            showNumber.append(sNumber.substring(0, find));
+                            thapPhan = sNumber.substring(find);
+                            showNumber.reverse();
+                            count = 0;
+                            for (i = 3; i < showNumber.length(); i += 3) {
+                                if (i + count <= (showNumber.length() - 1)) {
+                                    showNumber.insert((i + count), ",");
+                                }
+                                count += 1;
+                            }
+                            tvShow.append(showNumber.reverse() +thapPhan+ "-");
+                        }
+                    } else
+                        tvShow.append(number + "-");
                 } else {
-                    Toast toast = Toast.makeText(getBaseContext(),"Không có giá trị",Toast.LENGTH_SHORT);
-                    toast.setGravity(Gravity.CENTER,0,0);
+                    Toast toast = Toast.makeText(getBaseContext(), "Không có giá trị", Toast.LENGTH_SHORT);
+                    toast.setGravity(Gravity.CENTER, 0, 0);
                     toast.show();
                 }
                 break;
@@ -231,10 +281,39 @@ public class Bai2 extends AppCompatActivity implements View.OnClickListener {
                     listNumber.add(number);
                     listMatch.add("*");
                     et.setText("");
-                    tvShow.append(number + "*");
+                    int find = sNumber.indexOf(".");
+                    if (find >= 4 || (find < 0 && sNumber.length() >= 4)) {
+                        if (find < 0 && sNumber.length() >= 4) {
+                            showNumber.delete(0, showNumber.length());
+                            showNumber.append(sNumber);
+                            showNumber.reverse();
+                            count = 0;
+                            for (i = 3; i < showNumber.length(); i += 3) {
+                                if (i + count <= (showNumber.length() - 1)) {
+                                    showNumber.insert((i + count), ",");
+                                }
+                                count += 1;
+                            }
+                            tvShow.append(showNumber.reverse() + "*");
+                        } else {
+                            showNumber.delete(0, showNumber.length());
+                            showNumber.append(sNumber.substring(0, find));
+                            thapPhan = sNumber.substring(find);
+                            showNumber.reverse();
+                            count = 0;
+                            for (i = 3; i < showNumber.length(); i += 3) {
+                                if (i + count <= (showNumber.length() - 1)) {
+                                    showNumber.insert((i + count), ",");
+                                }
+                                count += 1;
+                            }
+                            tvShow.append(showNumber.reverse() +thapPhan+ "*");
+                        }
+                    } else
+                        tvShow.append(number + "*");
                 } else {
-                    Toast toast = Toast.makeText(getBaseContext(),"Không có giá trị",Toast.LENGTH_SHORT);
-                    toast.setGravity(Gravity.CENTER,0,0);
+                    Toast toast = Toast.makeText(getBaseContext(), "Không có giá trị", Toast.LENGTH_SHORT);
+                    toast.setGravity(Gravity.CENTER, 0, 0);
                     toast.show();
                 }
                 break;
@@ -247,10 +326,39 @@ public class Bai2 extends AppCompatActivity implements View.OnClickListener {
                     listNumber.add(number);
                     listMatch.add("/");
                     et.setText("");
-                    tvShow.append(number + "/");
-                } else {
-                    Toast toast = Toast.makeText(getBaseContext(),"Không có giá trị",Toast.LENGTH_LONG);
-                    toast.setGravity(Gravity.CENTER,0,0);
+                    int find = sNumber.indexOf(".");
+                    if (find >= 4 || (find < 0 && sNumber.length() >= 4)) {
+                        if (find < 0 && sNumber.length() >= 4) {
+                            showNumber.delete(0, showNumber.length());
+                            showNumber.append(sNumber);
+                            showNumber.reverse();
+                            count = 0;
+                            for (i = 3; i < showNumber.length(); i += 3) {
+                                if (i + count <= (showNumber.length() - 1)) {
+                                    showNumber.insert((i + count), ",");
+                                }
+                                count += 1;
+                            }
+                            tvShow.append(showNumber.reverse() + "/");
+                        } else {
+                            showNumber.delete(0, showNumber.length());
+                            showNumber.append(sNumber.substring(0, find));
+                            thapPhan = sNumber.substring(find);
+                            showNumber.reverse();
+                            count = 0;
+                            for (i = 3; i < showNumber.length(); i += 3) {
+                                if (i + count <= (showNumber.length() - 1)) {
+                                    showNumber.insert((i + count), ",");
+                                }
+                                count += 1;
+                            }
+                            tvShow.append(showNumber.reverse() +thapPhan+ "/");
+                        }
+                    } else
+                        tvShow.append(number + "/");
+                }else{
+                    Toast toast = Toast.makeText(getBaseContext(), "Không có giá trị", Toast.LENGTH_SHORT);
+                    toast.setGravity(Gravity.CENTER, 0, 0);
                     toast.show();
                 }
                 break;
@@ -268,8 +376,8 @@ public class Bai2 extends AppCompatActivity implements View.OnClickListener {
                     listNumber.add(number);
                     et.setText("");
                 } else {
-                    Toast toast = Toast.makeText(getBaseContext(),"Không có giá trị",Toast.LENGTH_SHORT);
-                    toast.setGravity(Gravity.CENTER,0,0);
+                    Toast toast = Toast.makeText(getBaseContext(), "Không có giá trị", Toast.LENGTH_SHORT);
+                    toast.setGravity(Gravity.CENTER, 0, 0);
                     toast.show();
                 }
                 for (i = 0; i < (listMatch.size()); i++) {
@@ -311,7 +419,23 @@ public class Bai2 extends AppCompatActivity implements View.OnClickListener {
                 listNumber.clear();
                 listMatch.clear();
                 listNumber.add(kq);
-                tvShow.setText(kq + "");
+                sNumber = kq + "";
+                int find = sNumber.indexOf(".");
+                if (find >= 4 || (find < 0 && sNumber.length() >= 4)) {
+                    showNumber.delete(0, showNumber.length());
+                    showNumber.append(sNumber.substring(0, find));
+                    thapPhan = sNumber.substring(find);
+                    showNumber.reverse();
+                    count = 0;
+                    for (i = 3; i < showNumber.length(); i += 3) {
+                        if (i + count <= (showNumber.length() - 1)) {
+                            showNumber.insert((i + count), ",");
+                        }
+                        count += 1;
+                    }
+                    tvShow.setText(" " + showNumber.reverse() + thapPhan);
+                } else
+                    tvShow.setText(kq + "");
                 break;
 
             default:
